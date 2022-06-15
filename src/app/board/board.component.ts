@@ -9,7 +9,7 @@ export class BoardComponent implements OnInit {
 
   squares!: any[];
   xIsNext: boolean = false;
-  winner!: string;
+  winner!: string | null;
 
   constructor() { }
 
@@ -17,9 +17,9 @@ export class BoardComponent implements OnInit {
     this.newGame();
   }
 
-  newGame() {
+  newGame(): void {
     this.squares = Array(9).fill(null);
-    this.winner = '';
+    this.winner = null;
     this.xIsNext = true;
   }
 
