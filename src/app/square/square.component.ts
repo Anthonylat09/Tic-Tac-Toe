@@ -5,7 +5,13 @@ import { Component, Input } from '@angular/core';
   template: `
     <button>{{ value }}</button>
   `,
-  styles: []
+  styles: [`
+    button{
+      height: 200px;
+      width: 200px;
+      font-size: 100px;
+    }
+  `]
 })
 export class SquareComponent{
 
