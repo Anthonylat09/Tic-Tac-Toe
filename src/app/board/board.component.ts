@@ -7,9 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BoardComponent implements OnInit {
 
-  squares: any[] = [];
+  squares!: any[];
   xIsNext: boolean = false;
-  winner: string | undefined;
+  winner!: string;
 
   constructor() { }
 
@@ -19,6 +19,20 @@ export class BoardComponent implements OnInit {
 
   newGame() {
     this.squares = Array(9).fill(null);
+    this.winner = '';
+    this.xIsNext = true;
+  }
+
+  get player() {
+    return this.xIsNext ? 'X' : 'O';
+  }
+
+  makeMove(idx: number) {
+    if(!this.squares[idx]) {
+      this.squares.splice(idx, 1, this.player);
+      this.xIsNext = !this.xIsNext;
+    }
+
   }
 
 }
